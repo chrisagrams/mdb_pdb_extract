@@ -1,0 +1,20 @@
+{
+  "name": "mdb_pdb_extract",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "cherio": "^1.0.0-rc.2",
+    "jsdom": "^24.0.0",
+    "node-html-parser": "^6.1.12",
+    "request": "^2.88.2",
+    "sqlite3": "^5.1.7"
+  }
+}
