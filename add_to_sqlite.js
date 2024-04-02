@@ -3,13 +3,13 @@ import sqlite3 from 'sqlite3';
 import path from 'path';
 import {html_to_json} from './index.js';
 
-// if (process.argv.length < 2) {
-//     console.log('Usage: node add_to_sqlite.js <htmlFilePath>');
-//     process.exit(1);
-// }
+if (process.argv.length < 2) {
+    console.log('Usage: node add_to_sqlite.js <directory>');
+    process.exit(1);
+}
   
 const speciesFile = readFileSync('./species_dict.json', 'utf8');
-const targetDirectoryPath = './test';
+const targetDirectoryPath = process.argv[2];
 const targetsFilePath = './files_scv_subset.txt';
 const jsonObject = JSON.parse(speciesFile);
   
