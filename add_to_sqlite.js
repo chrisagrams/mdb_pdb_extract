@@ -14,7 +14,7 @@ const targetsFilePath = './files_scv_subset.txt';
 const jsonObject = JSON.parse(speciesFile);
   
 // Open the database connection
-const db = new sqlite3.Database('./data.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
+const db = new sqlite3.Database('./db/data.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
     if (err) {
         console.error(err.message);
         process.exit(1);
