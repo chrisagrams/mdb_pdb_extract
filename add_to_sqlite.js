@@ -23,7 +23,7 @@ const db = new sqlite3.Database('./db/data.db', sqlite3.OPEN_READWRITE | sqlite3
 
 // Create the table if it does not exist
 db.serialize(() => {
-    db.run(`CREATE TABLE IF NOT EXISTS protein_data (
+    db.run(`CREATE TABLE IF NOT EXISTS mdb_scv (
         protein_id TEXT PRIMARY KEY,
         sequence_model TEXT NOT NULL,
         job_model TEXT NOT NULL
@@ -43,7 +43,7 @@ const processHtmlFile = (htmlFilePath) => {
         return;
     }
 
-    const stmt = db.prepare(`INSERT INTO protein_data (protein_id, sequence_model, job_model) VALUES (?, ?, ?) ON CONFLICT(protein_id) DO UPDATE SET sequence_model = excluded.sequence_model, job_model = excluded.job_model`);
+    const stmt = db.prepare(`INSERT INTO mdb_scv (protein_id, sequence_model, job_model) VALUES (?, ?, ?) ON CONFLICT(protein_id) DO UPDATE SET sequence_model = excluded.sequence_model, job_model = excluded.job_model`);
     stmt.run(sequence_model.protein_id, JSON.stringify(sequence_model), JSON.stringify(job_model), function(err) {
         if (err) {
             console.log(err.message);
