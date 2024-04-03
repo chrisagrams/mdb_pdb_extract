@@ -33,6 +33,8 @@ db.serialize(() => {
 // Function to process a single HTML file
 const processHtmlFile = (htmlFilePath) => {
     const res = html_to_json(htmlFilePath, null);
+    if (res === null)
+        return;
     const sequence_model = res.sequence_model;
     const job_model = res.job_model;
 

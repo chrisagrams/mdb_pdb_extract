@@ -15,6 +15,9 @@ const extract_glmol = (document) => {
 
 const extract_js_data = (document) => {
     const dataScript = document.querySelector("#data");
+    if (dataScript === null)
+        return null;
+
     const textContent = dataScript.textContent.replaceAll("let", ""); // Change scoped "let" variables to global variables
 
     const sandbox = {};
@@ -86,6 +89,10 @@ export const html_to_json = (htmlFilePath, species) => {
     // const res = extract_glmol(window.document);
 
     const js_data = extract_js_data(window.document);
+    
+    if (js_data === null)
+        return null;
+
     const job_detail = convert_to_job_detail(js_data, species);
     const protein_list = convert_to_protein_list(js_data);
 
